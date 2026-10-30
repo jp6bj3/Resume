@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Una Yang｜個人履歷</title>
+  <style>
+    :root {
+      --bg: #f6f5f1;
+      --paper: #ffffff;
+      --ink: #253c37;
+      --muted: #748079;
+      --green: #346b58;
+      --line: #dce2da;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.85;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    ::selection { background: #dcebdc; }
+    .wrap { width: min(1040px, calc(100% - 48px)); margin: auto; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #f6f5f1f5;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo { font-family: Georgia, serif; font-size: 25px; font-weight: bold; }
+    .nav-links { display: flex; gap: 25px; font-size: 12px; }
+    .nav-links a:hover { color: var(--green); text-decoration: underline; text-underline-offset: 6px; }
+
+    .hero {
+      padding: 85px 0 65px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 2.3px;
+      color: var(--green);
+      font-weight: bold;
+    }
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(52px, 7vw, 84px);
+      font-weight: normal;
+      letter-spacing: -3px;
+      line-height: 1.08;
+      margin: 25px 0 20px;
+    }
+    .hero h2 { font-size: 20px; font-weight: 500; margin: 0 0 20px; }
+    .intro { color: #637169; font-size: 14px; max-width: 490px; }
+    .actions { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 25px;
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      color: white;
+      border-radius: 4px;
+      padding: 11px 20px;
+      font-size: 12px;
+    }
+    .button.secondary { color: var(--ink); background: transparent; }
+    .button:hover { background: var(--green); color: white; }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid #99b9a6;
+      outline-offset: 5px;
+    }
+
+    .identity {
+      position: relative;
+      border: 1px solid #ccd7ca;
+      background: #e9eee4;
+      min-height: 310px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .identity::before {
+      content: "";
+      width: 240px;
+      height: 240px;
+      border: 1px solid #c3d0bd;
+      border-radius: 50%;
+      position: absolute;
+      right: -65px;
+      top: 20px;
+    }
+    .identity::after {
+      content: "";
+      width: 240px;
+      height: 240px;
+      border: 1px solid #c3d0bd;
+      border-radius: 50%;
+      position: absolute;
+      right: -25px;
+      top: 55px;
+    }
+    .identity > * { position: relative; z-index: 1; }
+    .identity-label { font-size: 10px; letter-spacing: 2px; }
+    .monogram { font-family: Georgia, serif; font-size: 100px; line-height: 1; }
+    .identity-bottom { display: flex; justify-content: space-between; font-size: 11px; }
+
+    .section {
+      display: grid;
+      grid-template-columns: 205px 1fr;
+      gap: 45px;
+      padding: 45px 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-title .number { font-size: 11px; color: var(--green); }
+    .section-title h2 { font-size: 21px; margin: 9px 0 0; }
+    .section-title p { font-size: 10px; color: var(--muted); letter-spacing: 1.5px; margin-top: 3px; }
+    .about p { margin: 0; font-size: 15px; }
+    .about .sub { color: var(--muted); font-size: 13px; margin-top: 16px; }
+
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .skills h3 { font-size: 14px; margin: 0 0 12px; }
+    .skills ul { list-style: none; padding: 0; margin: 0; color: #6b776f; font-size: 12px; }
+    .skills li { margin-bottom: 7px; }
+
+    .project { padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid var(--line); }
+    .project:last-child { border: 0; padding-bottom: 0; margin-bottom: 0; }
+    .project-top { display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+    .project-type { font-size: 10px; letter-spacing: 1.5px; color: var(--green); }
+    .status { font-size: 10px; color: #62725f; background: #e9eee4; padding: 3px 9px; border-radius: 3px; }
+    .project h3 { font-size: 21px; line-height: 1.5; margin: 12px 0; }
+    .project p { font-size: 13px; color: #69766d; margin: 0 0 15px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tags span { border: 1px solid var(--line); padding: 3px 10px; font-size: 10px; border-radius: 3px; }
+    details { margin-top: 18px; font-size: 12px; }
+    summary { cursor: pointer; color: var(--green); }
+    details ul { padding-left: 18px; color: #66746b; }
+    details li { margin: 6px 0; }
+
+    .timeline { border-left: 1px solid #bccabc; padding-left: 24px; }
+    .timeline h3 { margin: 0 0 5px; font-size: 17px; }
+    .timeline p { margin: 5px 0; font-size: 13px; color: #69766d; }
+    .pending { color: #9a8057; }
+    .label { color: var(--muted); font-size: 11px; }
+    .contact-box { background: #e9eee4; padding: 25px 28px; }
+    .contact-box h3 { font-size: 19px; margin: 0 0 8px; }
+    .contact-box p { font-size: 13px; color: #63735f; margin: 5px 0; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: 10px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .draft-note { font-size: 11px; color: #8e7d60; margin-top: 17px; }
+
+    @media (max-width: 720px) {
+      .wrap { width: calc(100% - 36px); }
+      .nav-inner { min-height: 64px; }
+      .nav-links { gap: 15px; font-size: 11px; }
+      .nav-links .optional { display: none; }
+      .hero { padding: 48px 0; grid-template-columns: 1fr; gap: 32px; }
+      .identity { min-height: 220px; }
+      .monogram { font-size: 75px; }
+      .section { grid-template-columns: 1fr; gap: 20px; padding: 32px 0; }
+      .section-title p { display: none; }
+      .section-title h2 { display: inline; margin-left: 13px; font-size: 19px; }
+      .skills { grid-template-columns: 1fr; gap: 22px; }
+      .skills ul { display: flex; flex-wrap: wrap; gap: 7px 15px; }
+      .skills li { margin: 0; }
+      .project h3 { font-size: 19px; }
+    }
+
+    @media print {
+      nav, .actions, .identity, .draft-note { display: none; }
+      body { background: white; font-size: 11px; }
+      .wrap { width: 100%; }
+      .hero { display: block; padding: 15px 0 25px; }
+      h1 { font-size: 40px; margin: 10px 0; }
+      .section { padding: 20px 0; gap: 25px; grid-template-columns: 150px 1fr; }
+      .project, .timeline { break-inside: avoid; }
+      details { display: none; }
+      .skills { grid-template-columns: repeat(3, 1fr); }
+      .contact-box { background: transparent; padding: 0; }
+      @page { size: A4; margin: 15mm; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="主要導覽">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#home" aria-label="回到頂端">uy.</a>
+      <div class="nav-links">
+        <a href="#about">關於我</a>
+        <a href="#projects">專案</a>
+        <a href="#experience" class="optional">經歷</a>
+        <a href="#contact">聯絡資訊 ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="hero" id="home">
+      <div>
+        <div class="eyebrow">SOFTWARE · FINTECH · AI</div>
+        <h1>Una Yang.</h1>
+        <h2>軟體開發 × AI 應用</h2>
+        <p class="intro">
+          從金融科技出發，探索資料、軟體與 AI 的交會。
+          希望把領域知識轉化成實際可用的系統。
+        </p>
+        <div class="actions">
+          <a class="button" href="#projects">瀏覽專案 <span>↘</span></a>
+          <button class="button secondary" type="button" onclick="window.print()">列印履歷</button>
+        </div>
+      </div>
+      <div class="identity" aria-label="Una Yang 個人識別">
+        <div class="identity-label">PERSONAL PORTFOLIO / RESUME</div>
+        <div class="monogram">UY</div>
+        <div class="identity-bottom">
+          <span>Una Yang</span>
+          <span>Taipei, Taiwan</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="about">
+      <div class="section-title">
+        <span class="number">01 /</span>
+        <h2>關於我</h2>
+        <p>ABOUT ME</p>
+      </div>
+      <div class="about">
+        <p>
+          具金融科技研究背景，關注軟體開發、資料整合與 AI 應用。
+          研究聚焦 ESG 非結構化資料與 LLM／RAG，
+          並持續累積 API 串接、資料庫 CRUD 與服務部署的實作經驗。
+        </p>
+        <p class="sub">
+          希望參與產品型團隊，結合領域知識與程式能力，
+          在實際需求中累積系統設計與工程經驗。
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-title">
+        <span class="number">02 /</span>
+        <h2>技術能力</h2>
+        <p>TECHNICAL SKILLS</p>
+      </div>
+      <div class="skills">
+        <div>
+          <h3>應用開發</h3>
+          <ul>
+            <li>API 串接</li>
+            <li>SQL CRUD</li>
+            <li>React 實作經驗</li>
+            <li>C# 基礎程式設計</li>
+          </ul>
+        </div>
+        <div>
+          <h3>環境與部署</h3>
+          <ul>
+            <li>Linux 基礎 / CLI</li>
+            <li>VM / 後端伺服器</li>
+            <li>PM2</li>
+            <li>CI/CD 實作經驗</li>
+          </ul>
+        </div>
+        <div>
+          <h3>研究領域</h3>
+          <ul>
+            <li>ESG 非結構化資料</li>
+            <li>大型語言模型 LLM</li>
+            <li>檢索增強生成 RAG</li>
+            <li>開放資料整合</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-title">
+        <span class="number">03 /</span>
+        <h2>精選專案</h2>
+        <p>SELECTED PROJECTS</p>
+      </div>
+      <div>
+        <article class="project">
+          <div class="project-top">
+            <span class="project-type">RESEARCH / AI APPLICATION</span>
+            <span class="status">碩士研究</span>
+          </div>
+          <h3>ESG 非結構化資料<br>與 LLM／RAG 研究</h3>
+          <p>
+            探討永續報告、新聞與法規等資料在 LLM／RAG 中的應用，
+            以降低幻覺、提升來源可追溯性為研究目標。
+          </p>
+          <div class="tags">
+            <span>ESG</span><span>LLM</span><span>RAG</span><span>Responsible AI</span>
+          </div>
+          <details>
+            <summary>查看研究內容</summary>
+            <ul>
+              <li>應用情境：輔助政府與第三方進行 ESG 資訊分析。</li>
+              <li>研究重點：非結構化資料運用、回答品質與來源追溯。</li>
+              <li class="pending">待補充：實際處理流程、實驗結果與論文連結。</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <span class="project-type">WEB APPLICATION / OPEN DATA</span>
+            <span class="status">開發中</span>
+          </div>
+          <h3>YouBike 站點與路線查詢</h3>
+          <p>
+            串接 YouBike 開放資料，呈現站點與車輛資訊，
+            並開發地圖及起訖點路線查詢功能，探索日常通勤的使用情境。
+          </p>
+          <div class="tags">
+            <span>Leaflet</span><span>openrouteservice</span><span>YouBike API</span>
+          </div>
+          <details>
+            <summary>查看專案內容</summary>
+            <ul>
+              <li>資料來源：YouBike 開放資料 API。</li>
+              <li>地圖介面：以 Leaflet 呈現地理資訊。</li>
+              <li>路線功能：使用 openrouteservice 開發查詢流程。</li>
+              <li class="pending">待補充：完成範圍、技術問題解法及 GitHub 連結。</li>
+            </ul>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-title">
+        <span class="number">04 /</span>
+        <h2>實務經歷</h2>
+        <p>EXPERIENCE</p>
+      </div>
+      <div class="timeline">
+        <div class="label">任職期間待補充</div>
+        <h3>IT／軟體相關實習</h3>
+        <p class="pending">［公司名稱］ · ［正式職稱］</p>
+        <p>此區將整理負責的系統功能、使用技術，以及可驗證的交付成果。</p>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-title">
+        <span class="number">05 /</span>
+        <h2>學歷</h2>
+        <p>EDUCATION</p>
+      </div>
+      <div class="timeline">
+        <div class="label">入學與畢業年月待補充</div>
+        <h3>銘傳大學</h3>
+        <p>金融科技碩士</p>
+        <p>研究方向：ESG、LLM 與檢索增強生成。</p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-title">
+        <span class="number">06 /</span>
+        <h2>聯絡資訊</h2>
+        <p>GET IN TOUCH</p>
+      </div>
+      <div>
+        <div class="contact-box">
+          <h3>期待參與有價值的產品開發。</h3>
+          <p>求職方向：軟體工程／AI 應用開發</p>
+          <p>Email：<span class="pending">［待補充］</span></p>
+          <p>GitHub：<span class="pending">［待補充］</span></p>
+        </div>
+        <p class="draft-note">目前為履歷預覽稿，個人資訊與成果細節待確認。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>UNA YANG · PERSONAL RESUME</span>
+      <a href="#home">回到頂端 ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
