@@ -149,7 +149,11 @@
     .status { font-size: 10px; color: #62725f; background: #e9eee4; padding: 3px 9px; border-radius: 3px; }
     .project h3 { font-size: 21px; line-height: 1.5; margin: 12px 0; }
     .project p { font-size: 13px; color: #69766d; margin: 0 0 15px; }
+    .project h4 { font-size: 14px; margin: 18px 0 0; }
+    .project h4 + .awards { margin-top: 8px; }
+    .project .awards + .tags { margin-top: 16px; }
     .project .metric { color: var(--green); font-weight: bold; }
+    .project .shot-note { font-size: 11px; color: var(--muted); margin: 0; }
     .project-shot {
       display: block;
       max-width: 100%;
@@ -360,8 +364,27 @@
       <div>
         <article class="project">
           <div class="project-top">
+            <span class="project-type">NLP / CONVERSATION ANALYTICS</span>
+            <span class="status">GAI 實習專案</span>
+          </div>
+          <h3>NLP 問答系統對話分析</h3>
+          <p>
+            優化 NLP 系統的使用者對話資料：統計回答信心值與出錯題型，
+            據此調整模型參數與參考 QA。
+          </p>
+          <details>
+            <summary>查看截圖</summary>
+            <a href="projects/nlp-chat-analysis.png" target="_blank" rel="noopener">
+              <img class="project-shot" src="projects/nlp-chat-analysis.png" alt="NLP 問答系統對話分析表：使用者提問、對應的智能問題、匹配型態與答案類型" loading="lazy">
+            </a>
+            <p class="shot-note">畫面為測試資料。</p>
+          </details>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
             <span class="project-type">WEB APPLICATION / INTERNAL TOOL</span>
-            <span class="status">實習專案</span>
+            <span class="status">IT 實習專案</span>
           </div>
           <h3>設計師圖庫平台</h3>
           <p>
@@ -386,7 +409,7 @@
         <article class="project">
           <div class="project-top">
             <span class="project-type">SEARCH ENGINE / ERP DATA</span>
-            <span class="status">實習專案</span>
+            <span class="status">IT 實習專案</span>
           </div>
           <h3>工廠端 ERP 產品搜尋平台</h3>
           <p>
@@ -463,17 +486,15 @@
 
         <article class="project">
           <div class="project-top">
-            <span class="project-type">3D VR GAME / TECHNICAL ART</span>
+            <span class="project-type">GAME DEVELOPMENT / TECHNICAL ART</span>
             <span class="status">大學專案</span>
           </div>
-          <h3>VR 遊戲雛形開發</h3>
+          <h3>大學時期遊戲作品</h3>
           <p>
-            使用 Unity 與 3ds Max 製作，擔任技術美術與 3D 製作。
-            了解廠商需求並提案，四個月內完成從開發、提案到 VR 遊戲雛形展示。
+            就讀中國科技大學數位多媒體設計系期間，以 Unity 製作 3D VR 遊戲與 2D 嚴肅遊戲，
+            擔任技術美術、3D 製作與企劃。
           </p>
-          <div class="tags">
-            <span>Unity</span><span>3ds Max</span><span>VR</span><span>After Effects</span><span>Premiere Pro</span>
-          </div>
+          <h4>VR 遊戲雛形（3D）</h4>
           <ul class="awards">
             <li>2020 XRun 體感科技創新大賽 入圍・潛力新秀獎</li>
             <li>CGW VR Battle 佳作獎</li>
@@ -481,35 +502,23 @@
             <li>第 14 屆創意加值競賽 多媒體應用組 第三名</li>
             <li>紅點概念設計競賽「火星生存」入圍</li>
           </ul>
-          <details>
-            <summary>查看專案內容</summary>
-            <ul>
-              <li>角色：技術美術、3D 製作。</li>
-              <li>需求與提案：分析廠商需求並提出解決方案。</li>
-              <li>專案時程：四個月，從開發、提案到展示 VR 遊戲雛形。</li>
-              <li>影片製作：以 After Effects、Premiere Pro 剪輯遊戲實機與宣傳影片。</li>
-            </ul>
-          </details>
-        </article>
-
-        <article class="project">
-          <div class="project-top">
-            <span class="project-type">2D GAME / GAME DESIGN</span>
-            <span class="status">大學專案</span>
-          </div>
-          <h3>Mr.Actor</h3>
-          <p>
-            使用 Unity 製作的 2D 遊戲，擔任技術美術與企劃。
-            探討嚴肅遊戲的娛樂性與正向影響，除了娛樂體驗，
-            也讓玩家透過遊戲認識心理現象中的制約，以及它如何被運用成潛在習慣。
-          </p>
-          <div class="tags">
-            <span>Unity</span><span>2D</span><span>Serious Game</span><span>Game Design</span>
-          </div>
+          <h4>Mr.Actor（2D）</h4>
           <ul class="awards">
             <li>紅點概念設計競賽 入圍</li>
             <li>放視大賞 遊戲企劃類 入圍</li>
           </ul>
+          <div class="tags">
+            <span>Unity</span><span>3ds Max</span><span>VR</span><span>After Effects</span><span>Premiere Pro</span>
+          </div>
+          <details>
+            <summary>查看作品內容</summary>
+            <ul>
+              <li>VR 遊戲雛形：擔任技術美術、3D 製作；分析廠商需求並提案，四個月內從開發、提案到展示 VR 遊戲雛形。</li>
+              <li>VR 遊戲雛形：以 After Effects、Premiere Pro 剪輯遊戲實機與宣傳影片。</li>
+              <li>Mr.Actor：使用 Unity 製作的 2D 遊戲，擔任技術美術與企劃。</li>
+              <li>Mr.Actor：探討嚴肅遊戲的娛樂性與正向影響，讓玩家透過遊戲認識心理現象中的制約，以及它如何被運用成潛在習慣。</li>
+            </ul>
+          </details>
         </article>
       </div>
     </section>
@@ -526,6 +535,11 @@
           <h3>人工智能股份有限公司</h3>
           <p>GAI 實習生</p>
           <p>參與客戶需求討論、文件處理、RAG 系統實作與模型測試，接觸企業 AI 導入情境。</p>
+          <ul>
+            <li>NLP 專案：對話分析與參數調整、實體標記。</li>
+            <li>RAG 專案：參與需求會議，規劃 KM 範疇並拆解實作；撰寫語意與意圖判斷的提示詞。</li>
+            <li>語音專案：協助實體抓取與判別、流程測試。</li>
+          </ul>
         </div>
         <div class="entry">
           <div class="label">2024/09 – 2026/02（1 年 6 個月）</div>
