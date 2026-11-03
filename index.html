@@ -149,6 +149,15 @@
     .status { font-size: 10px; color: #62725f; background: #e9eee4; padding: 3px 9px; border-radius: 3px; }
     .project h3 { font-size: 21px; line-height: 1.5; margin: 12px 0; }
     .project p { font-size: 13px; color: #69766d; margin: 0 0 15px; }
+    .project .metric { color: var(--green); font-weight: bold; }
+    .project-shot {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; }
     .tags span { border: 1px solid var(--line); padding: 3px 10px; font-size: 10px; border-radius: 3px; }
     .awards { list-style: none; padding: 0; margin: 16px 0 0; font-size: 12px; color: var(--ink); }
@@ -351,6 +360,59 @@
       <div>
         <article class="project">
           <div class="project-top">
+            <span class="project-type">WEB APPLICATION / INTERNAL TOOL</span>
+            <span class="status">實習專案</span>
+          </div>
+          <h3>設計師圖庫平台</h3>
+          <p>
+            建立可長期運作的設計知識庫，改善版本混亂問題；
+            提升設計稿重用與跨部門溝通效率，加速業務提案。
+          </p>
+          <a href="projects/design-library.png" target="_blank" rel="noopener">
+            <img class="project-shot" src="projects/design-library.png" alt="設計師圖庫平台「已儲存的清單」畫面：設計稿筆記、浮水印與多選寄出功能" loading="lazy">
+          </a>
+          <div class="tags">
+            <span>React</span><span>Airtable API</span><span>SFTP</span><span>EyeDropper API</span>
+          </div>
+          <details>
+            <summary>查看專案內容</summary>
+            <ul>
+              <li>調查設計師與業務需求：開發圖片調色與筆記、寄信功能。</li>
+              <li>依公司需求：開發使用日誌、浮水印與防截圖功能。</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <span class="project-type">SEARCH ENGINE / ERP DATA</span>
+            <span class="status">實習專案</span>
+          </div>
+          <h3>工廠端 ERP 產品搜尋平台</h3>
+          <p>
+            建立大數據資料庫搜尋引擎，提升產品搜尋效率與精準度；
+            改善同品項重複建立料號、庫存難以控管的問題。
+          </p>
+          <p class="metric">Solr 模糊搜尋時間縮短 92%：1.83 秒 → 0.15 秒</p>
+          <a href="projects/erp-search.png" target="_blank" rel="noopener">
+            <img class="project-shot" src="projects/erp-search.png" alt="Solr 產品搜尋介面：搜尋模式選項與分類篩選" loading="lazy">
+          </a>
+          <div class="tags">
+            <span>React</span><span>MSSQL</span><span>Solr</span><span>Node.js</span><span>Python</span>
+          </div>
+          <details>
+            <summary>查看專案內容</summary>
+            <ul>
+              <li>三種搜尋模式：Solr 品號優先、Solr 模糊搜尋、SQL 精準搜尋。</li>
+              <li>提供歷史搜尋紀錄與推薦搜尋項目。</li>
+              <li>建立圖片與品號關聯表。</li>
+              <li>解決河北工廠與台北總部搜尋時的簡／繁切換問題。</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
             <span class="project-type">RESEARCH / AI APPLICATION</span>
             <span class="status">碩士研究</span>
           </div>
@@ -382,6 +444,9 @@
             串接 YouBike 開放資料，呈現站點與車輛資訊，
             並開發地圖及起訖點路線查詢功能，探索日常通勤的使用情境。
           </p>
+          <a href="projects/youbike-map.jpg" target="_blank" rel="noopener">
+            <img class="project-shot" src="projects/youbike-map.jpg" alt="YouBike 互動式站點地圖：以環形標記顯示各站可借車數與一般車、電動車比例" loading="lazy">
+          </a>
           <div class="tags">
             <span>Leaflet</span><span>openrouteservice</span><span>YouBike API</span>
           </div>
@@ -487,6 +552,11 @@
           <p>研究方向：ESG、LLM 與檢索增強生成。</p>
         </div>
         <div class="entry">
+          <div class="label">2024/03 – 2024/07 · 進修／職訓</div>
+          <h3>緯育 TibaMe</h3>
+          <p>前端工程師教育培訓班</p>
+        </div>
+        <div class="entry">
           <div class="label">2022/06 畢業</div>
           <h3>中國科技大學</h3>
           <p>數位多媒體設計系 設計學士</p>
@@ -528,10 +598,8 @@
         <div class="contact-box">
           <h3>期待參與有價值的產品開發。</h3>
           <p>求職方向：軟體工程／AI 應用開發</p>
-          <p>Email：<span class="pending">［待補充］</span></p>
-          <p>GitHub：<span class="pending">［待補充］</span></p>
+          <p>Email：<span class="pending">youk2333@gmail.com</span></p>
         </div>
-        <p class="draft-note">目前為履歷預覽稿，個人資訊與成果細節待確認。</p>
       </div>
     </section>
   </main>
