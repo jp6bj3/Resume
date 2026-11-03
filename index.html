@@ -151,6 +151,9 @@
     .project p { font-size: 13px; color: #69766d; margin: 0 0 15px; }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; }
     .tags span { border: 1px solid var(--line); padding: 3px 10px; font-size: 10px; border-radius: 3px; }
+    .awards { list-style: none; padding: 0; margin: 16px 0 0; font-size: 12px; color: var(--ink); }
+    .awards li { margin: 4px 0; }
+    .awards li::before { content: "★"; color: var(--green); margin-right: 8px; font-size: 10px; }
     details { margin-top: 18px; font-size: 12px; }
     summary { cursor: pointer; color: var(--green); }
     details ul { padding-left: 18px; color: #66746b; }
@@ -159,6 +162,44 @@
     .timeline { border-left: 1px solid #bccabc; padding-left: 24px; }
     .timeline h3 { margin: 0 0 5px; font-size: 17px; }
     .timeline p { margin: 5px 0; font-size: 13px; color: #69766d; }
+    .timeline .entry + .entry { margin-top: 26px; }
+    .timeline h4 { font-size: 13px; margin: 18px 0 4px; }
+    .timeline ul { padding-left: 18px; margin: 0; font-size: 13px; color: #69766d; }
+    .timeline li { margin: 4px 0; }
+    .certs { list-style: none; padding: 0; margin: 0; }
+    .certs li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .certs li:first-child { padding-top: 0; }
+    .certs li:last-child { border: 0; }
+    .certs time { color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .certs a:hover { color: var(--green); text-decoration: underline; text-underline-offset: 4px; }
+    .certs li { position: relative; }
+    .cert-preview {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 6px);
+      z-index: 5;
+      width: 340px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px #253c3726;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .15s, visibility .15s;
+    }
+    .certs li:hover .cert-preview,
+    .certs li:focus-within .cert-preview { opacity: 1; visibility: visible; }
+    .cert-extra { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .cert-extra h3 { font-size: 14px; margin: 0 0 6px; }
+    .cert-extra p { font-size: 13px; color: #69766d; margin: 0; }
     .pending { color: #9a8057; }
     .label { color: var(--muted); font-size: 11px; }
     .contact-box { background: #e9eee4; padding: 25px 28px; }
@@ -184,9 +225,12 @@
       .skills li { margin: 0; }
       .project h3 { font-size: 19px; }
     }
+    @media (hover: none), (max-width: 720px) {
+      .cert-preview { display: none; }
+    }
 
     @media print {
-      nav, .actions, .identity, .draft-note { display: none; }
+      nav, .actions, .identity, .draft-note, .cert-preview { display: none; }
       body { background: white; font-size: 11px; }
       .wrap { width: 100%; }
       .hero { display: block; padding: 15px 0 25px; }
@@ -200,6 +244,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      .cert-preview { transition: none; }
     }
   </style>
 </head>
@@ -350,6 +395,57 @@
             </ul>
           </details>
         </article>
+
+        <article class="project">
+          <div class="project-top">
+            <span class="project-type">3D VR GAME / TECHNICAL ART</span>
+            <span class="status">大學專案</span>
+          </div>
+          <h3>VR 遊戲雛形開發</h3>
+          <p>
+            使用 Unity 與 3ds Max 製作，擔任技術美術與 3D 製作。
+            了解廠商需求並提案，四個月內完成從開發、提案到 VR 遊戲雛形展示。
+          </p>
+          <div class="tags">
+            <span>Unity</span><span>3ds Max</span><span>VR</span><span>After Effects</span><span>Premiere Pro</span>
+          </div>
+          <ul class="awards">
+            <li>2020 XRun 體感科技創新大賽 入圍・潛力新秀獎</li>
+            <li>CGW VR Battle 佳作獎</li>
+            <li>2021 台灣原創遊戲大賞 校園組 入圍</li>
+            <li>第 14 屆創意加值競賽 多媒體應用組 第三名</li>
+            <li>紅點概念設計競賽「火星生存」入圍</li>
+          </ul>
+          <details>
+            <summary>查看專案內容</summary>
+            <ul>
+              <li>角色：技術美術、3D 製作。</li>
+              <li>需求與提案：分析廠商需求並提出解決方案。</li>
+              <li>專案時程：四個月，從開發、提案到展示 VR 遊戲雛形。</li>
+              <li>影片製作：以 After Effects、Premiere Pro 剪輯遊戲實機與宣傳影片。</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <span class="project-type">2D GAME / GAME DESIGN</span>
+            <span class="status">大學專案</span>
+          </div>
+          <h3>Mr.Actor</h3>
+          <p>
+            使用 Unity 製作的 2D 遊戲，擔任技術美術與企劃。
+            探討嚴肅遊戲的娛樂性與正向影響，除了娛樂體驗，
+            也讓玩家透過遊戲認識心理現象中的制約，以及它如何被運用成潛在習慣。
+          </p>
+          <div class="tags">
+            <span>Unity</span><span>2D</span><span>Serious Game</span><span>Game Design</span>
+          </div>
+          <ul class="awards">
+            <li>紅點概念設計競賽 入圍</li>
+            <li>放視大賞 遊戲企劃類 入圍</li>
+          </ul>
+        </article>
       </div>
     </section>
 
@@ -360,10 +456,20 @@
         <p>EXPERIENCE</p>
       </div>
       <div class="timeline">
-        <div class="label">任職期間待補充</div>
-        <h3>IT／軟體相關實習</h3>
-        <p class="pending">［公司名稱］ · ［正式職稱］</p>
-        <p>此區將整理負責的系統功能、使用技術，以及可驗證的交付成果。</p>
+        <div class="label">2024/09 – 2026/02（1 年 6 個月）</div>
+        <h3>舒美興業股份有限公司</h3>
+        <p>IT 實習生</p>
+        <h4>推動公司數位轉型，提升內部營運效率</h4>
+        <ul>
+          <li>導入 SaaS 平台：業務端成品搜尋平台、採購需求單管理平台、設計師創意提案平台。</li>
+          <li>自主開發並部署內部系統：產品設計稿管理平台、工廠端 ERP 產品搜尋平台。</li>
+          <li>輔導 3 位實習生半年，完成部門專案的開發。(2025/7-2026/2)</li>
+        </ul>
+        <h4>參與跨部門與外部廠商的系統開發協作</h4>
+        <ul>
+          <li>參與 PLM 系統導入的需求討論與技術規劃。</li>
+          <li>與供應鏈廠商共同規劃並開發 PO 供應鏈 API，改善採購流程與資料串接效率。</li>
+        </ul>
       </div>
     </section>
 
@@ -374,16 +480,47 @@
         <p>EDUCATION</p>
       </div>
       <div class="timeline">
-        <div class="label">入學與畢業年月待補充</div>
-        <h3>銘傳大學</h3>
-        <p>金融科技碩士</p>
-        <p>研究方向：ESG、LLM 與檢索增強生成。</p>
+        <div class="entry">
+          <div class="label">2024/09 – 2026/09</div>
+          <h3>銘傳大學</h3>
+          <p>金融科技碩士</p>
+          <p>研究方向：ESG、LLM 與檢索增強生成。</p>
+        </div>
+        <div class="entry">
+          <div class="label">2022/06 畢業</div>
+          <h3>中國科技大學</h3>
+          <p>數位多媒體設計系 設計學士</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="section-title">
+        <span class="number">06 /</span>
+        <h2>證照與課程</h2>
+        <p>CERTIFICATIONS</p>
+      </div>
+      <div>
+        <ul class="certs">
+          <li><a href="https://www.credly.com/badges/5aba2e66-70ff-49a1-832c-513d3fb87ec3/public_url" target="_blank" rel="noopener">Artificial Intelligence Fundamentals with Capstone Project ↗</a><time>IBM SkillsBuild · 2025/12/13</time></li>
+          <li><a href="https://www.credly.com/badges/3581f00e-9e3f-48f7-aae0-bcb400633241/public_url" target="_blank" rel="noopener">Artificial Intelligence Fundamentals ↗</a><time>IBM SkillsBuild · 2025/12/12</time></li>
+          <li><a href="certs/nvidia-rag-agents.jpg" target="_blank" rel="noopener">Building RAG Agents with LLMs ↗</a><time>NVIDIA · 2025/11/20</time><img class="cert-preview" src="certs/nvidia-rag-agents.jpg" alt="Building RAG Agents with LLMs 證書" loading="lazy"></li>
+          <li><a href="certs/nvidia-rapid-llm-apps.jpg" target="_blank" rel="noopener">快速開發基於大型語言模型(LLM)的應用程式 ↗</a><time>NVIDIA · 2025/10/30</time><img class="cert-preview" src="certs/nvidia-rapid-llm-apps.jpg" alt="快速開發基於大型語言模型(LLM)的應用程式 證書" loading="lazy"></li>
+          <li><a href="certs/nvidia-transformer-nlp.jpg" target="_blank" rel="noopener">Introduction to Transformer-Based Natural Language Processing ↗</a><time>NVIDIA · 2025/10/09</time><img class="cert-preview" src="certs/nvidia-transformer-nlp.jpg" alt="Introduction to Transformer-Based Natural Language Processing 證書" loading="lazy"></li>
+          <li><a href="certs/nvidia-jetson-nano.jpg" target="_blank" rel="noopener">透過 Jetson Nano 開發人工智慧應用 ↗</a><time>NVIDIA · 2025/09/24</time><img class="cert-preview" src="certs/nvidia-jetson-nano.jpg" alt="透過 Jetson Nano 開發人工智慧應用 證書" loading="lazy"></li>
+          <li><a href="certs/nvidia-prompt-engineering.jpg" target="_blank" rel="noopener">Building LLM Applications With Prompt Engineering ↗</a><time>NVIDIA · 2025/09/18</time><img class="cert-preview" src="certs/nvidia-prompt-engineering.jpg" alt="Building LLM Applications With Prompt Engineering 證書" loading="lazy"></li>
+          <li><a href="certs/nvidia-deep-learning.jpg" target="_blank" rel="noopener">深度學習基礎理論與實踐 ↗</a><time>NVIDIA · 2025/06/12</time><img class="cert-preview" src="certs/nvidia-deep-learning.jpg" alt="深度學習基礎理論與實踐 證書" loading="lazy"></li>
+        </ul>
+        <div class="cert-extra">
+          <h3>資安競賽參與</h3>
+          <p>AIS3 MyFirstCTF（2026/05）、Secure Code Warrior Tournament（2024/06）</p>
+        </div>
       </div>
     </section>
 
     <section class="section" id="contact">
       <div class="section-title">
-        <span class="number">06 /</span>
+        <span class="number">07 /</span>
         <h2>聯絡資訊</h2>
         <p>GET IN TOUCH</p>
       </div>
